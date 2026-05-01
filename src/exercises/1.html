@@ -1,19 +1,32 @@
 <!doctype html>
 <html lang="en">
-  {{> head}}
+  <head>
+    {{> head}}
+  </head>
   <body>
     {{> header-bar }}
+
+    <div id="root" class="container"></div>
   </body>
 
   <script>
-    // 🦁 crée un div avec l'id "root" et la classe "container"
-    
-    // 🦁 crée un button
-    
-    // 🦁 ajoute les classes "btn" et "btn-primary" dedans
-    
-    // 🦁 ajoute le text "Hello 👋" dedans
-    
-    // 🦁 ajoute le button dans l'élément "root"
+    const button = document.createElement('button');
+    button.classList.add('btn', 'btn-primary');
+    button.innerText = 'Hello 👋';
+
+    button.addEventListener('click', () => {
+      alert('Tu as cliqué sur Hello 👋 !');
+    });
+
+    const counter = (initialValue)=> {
+      const button = document.createElement('button');
+      button.innerText = Number(initialValue) || 0;
+      button.classList.add('btn', 'btn-primary');
+
+      // const onClick = 
+    }
+
+    const root = document.querySelector('#root');
+    root.appendChild(button);
   </script>
 </html>

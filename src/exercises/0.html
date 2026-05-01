@@ -7,6 +7,8 @@
     {{> header-bar }}
 
     <div class="flex flex-col gap-4 container">
+      <input id="base" placeholder="Entrer la base">
+      <input id="hauteur" placeholder="Entrer la hauteur">
       <button class="btn btn-primary" onclick="calculate()">Submit</button>
       <div id="result"></div>
     </div>
@@ -16,8 +18,16 @@
     const triangleAir = (base, height) => (base * height) / 2;
 
     const calculate = () => {
-      // 🦁 Vient calculer l'air pour un triangle de base 5 et de hauteur 10.
-      // 🦁 Affichez le résultat dans la div "result".
+      const base = Number(document.querySelector('#base').value);
+      const hauteur = Number(document.querySelector('#hauteur').value);
+
+      if (Number.isNaN(base) || Number.isNaN(hauteur)) {
+        alert('Type de donnees incorrect');
+        return;
+      }
+
+      const result = triangleAir(base, hauteur);
+      document.querySelector('#result').innerHTML = result;
     };
   </script>
 
