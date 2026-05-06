@@ -7,26 +7,50 @@
     {{> header-bar }}
 
     <div id="root" class="container"></div>
+    <ul>
+      <li></li>
+    </ul>
   </body>
 
   <script>
     const button = document.createElement('button');
     button.classList.add('btn', 'btn-primary');
-    button.innerText = 'Hello 👋';
+    button.innerText = 'Hello ';
 
     button.addEventListener('click', () => {
       alert('Tu as cliqué sur Hello 👋 !');
     });
 
-    const counter = (initialValue)=> {
+    const counter = (initialValue) => {
       const button = document.createElement('button');
       button.innerText = Number(initialValue) || 0;
       button.classList.add('btn', 'btn-primary');
 
-      // const onClick = 
+      const onClick = () => {
+        const previousNumber = Number(button.innerText);
+        button.innerText = previousNumber + 1;
+      }
+      
+      button.addEventListener('click', onClick);
+      return button;
+    }
+
+
+    const fruits = ['banana', 'apple', 'strawberry'];
+    const ul = document.createElement('ul');
+    ul.classList.add('list-disc');
+
+    for(const fruit of fruits) {
+      const fruitli = document.createElement('li');
+      fruitli.innerText = fruit;
+      ul.appendChild(fruitli);
     }
 
     const root = document.querySelector('#root');
     root.appendChild(button);
+    root.appendChild(counter());
+    root.appendChild(ul);
+
+
   </script>
 </html>
